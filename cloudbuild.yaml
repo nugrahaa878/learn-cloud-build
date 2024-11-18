@@ -17,5 +17,8 @@ steps:
       '.'
     ]
 
+substitutions:
+  _SERVICE_NAME: my-service
+  
 options:
   logging: CLOUD_LOGGING_ONLY

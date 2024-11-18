@@ -13,9 +13,7 @@ steps:
     args:
       - "-c"
       - |
-        docker build \
-        -t gcr.io/learn/${_SERVICE_NAME}:$(cat /workspace/version.txt) \
-        .
+        docker build -t reactjs-stg/learn-cb:1.0.0 -f Dockerfile.stg .
 
 substitutions:
   _SERVICE_NAME: learn-cb

@@ -8,17 +8,20 @@ steps:
         echo "$(date +%Y%m%d).$BUILD_ID" > /workspace/version.txt
         VERSION=$(cat /workspace/version.txt)
         echo "Building version: $${VERSION} hahaha"
-  
- - name: 'gcr.io/cloud-builders/docker'
-    args: [
-      'build',
-      '-t', 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:latest',
-      '-t', 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$(cat /workspace/version.txt)',
-      '.'
-    ]
+
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:latest",
+        "-t",
+        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$(cat /workspace/version.txt)",
+        ".",
+      ]
 
 substitutions:
   _SERVICE_NAME: my-service
-  
+
 options:
   logging: CLOUD_LOGGING_ONLY

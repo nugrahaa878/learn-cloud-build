@@ -1,0 +1,10 @@
+steps:
+  # Generate version number using date and build number
+  - name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        echo "$(date +%Y%m%d).$BUILD_ID" > /workspace/version.txt
+        VERSION=$(cat /workspace/version.txt)
+        echo "Building version: $${VERSION}"

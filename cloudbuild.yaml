@@ -8,3 +8,6 @@ steps:
         echo "$(date +%Y%m%d).$BUILD_ID" > /workspace/version.txt
         VERSION=$(cat /workspace/version.txt)
         echo "Building version: $${VERSION}"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

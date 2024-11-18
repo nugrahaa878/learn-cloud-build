@@ -11,9 +11,12 @@ steps:
 
   - name: "gcr.io/cloud-builders/docker"
     args:
-      - "-c"
-      - |
-        docker build -t reactjs-stg/learn-cb:1.0.0 -f Dockerfile.stg .
+      - "build"
+      - "-t"
+      - "reactjs-stg/learn-cb:1.0.0"
+      - "-f"
+      - "Dockerfile.stg"
+      - "."
 
 substitutions:
   _SERVICE_NAME: learn-cb
